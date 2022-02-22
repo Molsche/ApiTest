@@ -1,0 +1,22 @@
+Scanner:
+
+Implementation der Scanner (max 10 gleichzeitig)
+
+	1. Einfacher Scanner HotByVolume US (Übung)
+	2. Funktion zum Übergeben der Ergebnisse
+	3. Algo zum detektieren von Veränderung + Übergabe
+		Ergebniss nach erster Übergabe nur interessant, wenn sich etwas stark verändert,
+			wie z.B. die Aktivität oder der Preis
+
+
+Was soll der Scanner machen?
+- Hot by Volume
+- Hot by %-Veränderung
+- solide Kursanstiege über x Tage (Tage in folge mit positivem Abschluss)
+- solide Kursfälle über x Tage            -"-
+- Breakout-Scanner (High/low)
+
+
+Top 5 Stocks (langfristige Scanner) an Langfristiegere Strategien übergeben
+
+Top 3 Stocks (kurzfristige Scanner z.B. Volume/%) an Kurzzeitstrategien übergeben

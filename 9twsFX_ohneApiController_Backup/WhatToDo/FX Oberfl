@@ -1,0 +1,15 @@
+JavaFX Oberfläche:
+
+Anzeige in der Mitte flexibel gestalten:
+	-	Zeigt zusätzliche Inhalte und Buttons bei gewissen Aktionen an
+			Z.b.: Wenn TickData empfangen wird, ein Button zum Stoppen, ein SMA ein EMA, Preis aktuell
+			Berechneter Einstieg/Wahrscheinlichkeit für Kursstieg/-fall
+	
+	-	Anzeige der Aktiven Trades bei anclick
+			Zeigt untereinander die Trades an mit folgenden Daten (aktuell für jeden Tick)
+				- Einstieg
+				- Ausstieg (berechnet)
+				- EMA/SMA
+				- Preis Aktuell
+				- Gewinn/Verlust in % und absolut
+				- Erfolgschance (berechnet) und welche Indikatoren/Strategien

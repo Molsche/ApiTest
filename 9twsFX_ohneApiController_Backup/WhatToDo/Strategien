@@ -1,0 +1,48 @@
+Strategien
+
+Strategiehandler:
+	- bekommt Stocks von Scanner /Input übergeben
+	- je nach Scanner übergibt er an Strategien
+	- Holt automatisch Historische/aktuelle Daten sowie die Ticks wenn nötig und gibt an Strategien
+		-> Einmal Daten anfragen und für mehrere Strategiene parallel nutzen
+	
+	- Bekommt Werte zurück und vergleicht mit Werten aus gleichem Strategiefeld
+	- Bestimmt Einstieg Ja nein, Richtung long/short und übernimmt Einstiegswerte sowie Risikofaktor
+	- Übergibt Daten an Orderhandler mit Strategieparameter (Kurz/Mittel/Langfristig) für Abwicklung
+	- Empfängt von Order Handler A-T-Handler-Object für Tick-Update-Querry 
+		-> Sendet dann die Ticks auch an den A-T-Handler für live-Daten
+
+Generell:
+	- Prognose Berechnen
+		- Wahrscheinlichkeit für Eintritt inkl. Hoistorische Datenabgleich diverse Zeiträume
+		- Einstiegskriterium berechnen
+		- Ausstiegskriterium definieren
+			- Risikoanalyse/Abgleich -> max Verlust 1:2 Gewinn
+			- Trailing Stop Order (Parameter an Orderhandler Übergeben)
+			
+Langzeitstrategie (über Tage)
+	- "Safe"-Strategie für 25-50% des Kapitals (Diversifizieren)
+	- An technische Analysen angelehnt
+	- Trendaktien / Trend folgen
+	- Was gut lief über langen Zeitraum, aber in Kurzem evtl. eingebrochen ist
+		-> "Rabatt" einkaufen und halten bis Trendline /SMA/EMA wieder erreicht ist + trailing Stop
+	- Wie drüber, nur für fallende Aktien/Kurse
+	- Langfristige Historische Daten (3 Stunden-/Tageweise über viele Tage hinweg ~190 Tage)
+	
+Mittelfristig (Über Stunden)
+	- "Semi-Safe" für ~25% des Kapitals
+	- ehemals zu stark gefallen/gestiegene Kurse für "Korrektion" einkaufen
+		-> Angleichung an SMA/EMA
+	- Mittelfristige Trendwenden
+	- Mittelfristige Support-/Grenzen erkennen
+	- Mittelfristige Volatilität erkenne/bewerten und günstiege Einstiege definieren
+	- Trailing Stops
+	- Mittelfristige Historische Daten (10 Min Intervalle von mehreren Tagen nur)
+	
+Kurzristig (Sekunden-Minuten bis Stunde)
+	- Sehr Spekulativ ~25% Kapital
+	- "Auf den Zug aufspringen" Schnell auf Scanner reagieren, der Preisanstieg/Breakouts anzeigt
+	- Trendwenden mitnehmen
+	- Ausstieg vor Korrektur
+	- Schnelle anpassung des Trailing Stops -> sofort raus, wenn Kurs wieder fällt/steigt
+	- kaum Historische Daten von nöten (nur sehr Kurzfristig -> Seit Tagesbeginn)

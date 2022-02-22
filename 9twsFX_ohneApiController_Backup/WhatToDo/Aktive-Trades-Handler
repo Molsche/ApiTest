@@ -1,0 +1,14 @@
+Aktive-Trades-Handler
+Langsamer Handler, da er nix entscheidet, sondern nur visualisiert, 5-10 Sekunden Intervall
+Kurzfristige Trades werden pro Tick aktualisiert
+
+- Wird von Order Handler aufgerufen, wenn:
+	1. Aktive Trades vom Server kommen
+	2. Eine Order ausgeführt wird
+
+- Gibt bei Aufruf ein Object zurück, welches für den Verbindungsaufbau für die Ticks über den Order Handler
+	an den Strategiehandler übergeben wird, welcher die Ticks dann an den Entsprechenden A-T-Handler sendet
+
+- Fügt der Oberfläche die Livedaten des Trades hinzu, wenn Schlatfläche angewählt wird
+	- hält die Daten im Hintergund vor, damit nix neu berechnet/geladen werden muss
+	

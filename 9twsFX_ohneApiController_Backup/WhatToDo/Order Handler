@@ -1,0 +1,12 @@
+Order Handler:
+
+- Holt bei Start alle Aktiven Trades/Orders vom Server und Überträgt Daten/Tick-Object an Aktive-Trade-Handler
+- Empfängt Daten des Strategiehandlers + Tick-Object
+	Oder bei Aufruf des Aktive-Trade-Handlers wird A-T-Handler an Strategiehandler für Tick-Updates übergeben
+		-> Strategiehandler sendet dann auch Ticks an A-T-Handler
+- Setzt Order auf
+- Hält Verbindung zu Strategie / ruft Strategie wieder auf bei Langzeitstrategien
+- Passt Orders an (Mittel/Kurzfristig)
+- Jeder Handler für eine Order (wird gethreaded -> mehrere Handler gleichzeitig aktiv im Zweifel)
+- schnell in Ausführung / Leichter Code
+- Überwacht Order bis zur ersten Ausführung -> Übergabe an Aktive-Trades-Handler
